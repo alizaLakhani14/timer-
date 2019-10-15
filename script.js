@@ -3,6 +3,8 @@ let mins = document.querySelector('.minutes');
 let secs = document.querySelector('.seconds');
 let timer;
 let isWorking = true;
+const sound = new Audio("success.wav");
+const tickTock = new Audio("ticktock.wav");
 
 function timerFunction() {
 	if (hrs.value == 0 && mins.value == 0 && secs.value == 0) {
@@ -18,13 +20,19 @@ function timerFunction() {
 			}
 		} else {
 			secs.value--;
+			tickTock.play();
 		}
-    }
+	}
+	
+	if(secs.value > 59 || mins.value > 59 ){
+		location.reload();
+	}
 }
 
 function timesUp() {
 	clearInterval(timer);
 	isWorking = true;
+	sound.play();
 }
 
 function startTimer() {
