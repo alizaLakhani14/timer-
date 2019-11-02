@@ -10,8 +10,8 @@
 body{
    background: linear-gradient(to top, #ad5389, #3c1053);
    margin:0;
-   padding:0;
-
+   padding:4em;
+   height:100vh
 }
 .inputs{
     display: flex;
